@@ -1,14 +1,34 @@
 
+calls = 0
+def count_calls():
+    global calls
+    calls += 1
+    return
 
-def get_matrix(n,m,value):
-    matrix = []
-    for i in range(n):
-        matrix.append([])
-        for c in range(m):
-            matrix[i].append(value)
-    print(matrix)
-    return matrix
-n = int(input('Введите первое число: '))
-m = int (input('Введите второе число: '))
-value = int(input('Ведите третье число:'))
-matrix = get_matrix(n,m,value)
+def string_info(n):
+    s1 = n.upper()
+    s2 = n.lower()
+    n = tuple(n)
+    count_calls()
+    return (len(n), s1, s2)
+
+
+def is_contains(string, lst):
+    count_calls()
+    return string.lower() in [f.lower() for f in lst]
+
+
+
+print(string_info('Capybara'))
+
+print(string_info('Armageddon'))
+
+print(is_contains('Urban', ['ban', 'BaNaN', 'urBAN']))
+
+print(is_contains('cycle', ['recycling', 'cyclic']))
+
+print(calls)
+
+
+
+
